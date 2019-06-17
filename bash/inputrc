@@ -1,0 +1,34 @@
+# Configuring vi edit mode
+set editing-mode vi
+set show-mode-in-prompt on
+set vi-ins-mode-string "[I]"
+set vi-cmd-mode-string "[C]"
+
+# Allowing the Ctrl + L in both insert and command modes
+$if mode=vi
+  # these are for vi-command mode
+  set keymap vi-command
+  Control-l: clear-screen
+
+  # these are for vi-insert mode
+  set keymap vi-insert
+  Control-l: clear-screen 
+$endif
+
+# Allowing less tab presses by showing all suggestions at once
+set show-all-if-ambiguous on
+
+# Color files by types
+set colored-stats On
+# Append char to indicate type
+set visible-stats On
+# Mark symlinked directories
+set mark-symlinked-directories On
+# Color the common prefix
+set colored-completion-prefix On
+# Color the common prefix in menu-complete
+set menu-complete-display-prefix On
+
+# Complete history for commands
+"\e[A": history-search-backward
+"\e[B": history-search-forward
