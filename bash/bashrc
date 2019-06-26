@@ -169,6 +169,6 @@ copyfile()
   /bin/cat "$1" | xclip -selection clipboard
 }
 
-# Scripts for working with ZoeSlots
+# External scripts
 . $HOME/.bash_scripts/*.sh
 
