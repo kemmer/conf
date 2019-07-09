@@ -35,6 +35,9 @@ alias evpn="expressvpn"
 alias evpns="expressvpn status"
 alias evpnc="expressvpn connect"
 alias evpnd="expressvpn disconnect"
+alias evpnb="expressvpn disconnect ; expressvpn connect Brazil"
+alias evpnn="expressvpn disconnect ; expressvpn connect Netherlands"
+alias evpng="expressvpn disconnect ; expressvpn connect Germany"
 
 # Generate SSH key
 alias sshgen="ssh-keygen -t rsa -b 2048 -m pem"
