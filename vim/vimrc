@@ -1,1 +1,36 @@
-/home/crke/.vimrc
+" ~/.vimrc
+
+" BEGIN vim-plug configuration section
+call plug#begin('~/.vim/plugged')
+Plug 'connorholyday/vim-snazzy'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Yggdroot/indentLine'
+call plug#end()
+" END vim-plug
+
+" Color scheme configuration
+colorscheme snazzy
+
+" Activate syntax highlighting
+syntax on
+
+" Activate displaying numbers in the editor
+set number
+
+" Highlight all search matches
+set hlsearch
+
+" Configuration for indentation (global): convert tabs to spaces
+set expandtab
+
+" indentLine plugin chars
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+" Default configurations for indentation
+set shiftwidth=4
+set softtabstop=4
+
+" shorcuts for moving around opened tabs
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
