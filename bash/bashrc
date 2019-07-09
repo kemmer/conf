@@ -76,59 +76,78 @@ alias ggpush="git push"
 # Configures this script
 config_bash()
 {
-  $EDITOR $HOME/.bashrc
+    $EDITOR $HOME/.bashrc
 }
 
 # Configures environment variables
 config_env()
 {
-  $EDITOR $HOME/.profile
+    $EDITOR $HOME/.profile
 }
 
 # Configures inputrc file (Readline configuration)
 config_inputrc()
 {
-  $EDITOR $HOME/.inputrc
+    $EDITOR $HOME/.inputrc
 }
 
 # Configures the custom scripts held in scripts dir
 config_script()
 {
-  local filename="$1.sh"
-  $EDITOR $HOME/.bash_scripts/$filename
+    if [ -z $1 ]; then
+        return
+    fi
+
+    local filename="$1.sh"
+    $EDITOR $HOME/.bash_scripts/$filename
 }
 
 # Configures the custom scripts held in scripts dir (private)
 config_privscript()
 {
-  local private_filename="priv_$1"
-  config_script $private_filename
+    if [ -z $1 ]; then
+        return
+    fi
+    echo $1
+
+    local private_filename="priv_$1.sh"
+    $EDITOR $HOME/.bash_scripts/$private_filename
+}
+
+config_lscript()
+{
+    (cd $HOME/.bash_scripts/ && /bin/ls *.sh)
+}
+
+config_vim()
+{
+    $EDITOR $HOME/.vimrc
 }
 
 # Finds file starting from current directory
 # All parameters after the first one will be used as find parameters
 f() {
-  local filter="$1"
-  shift
-  find . -iname "*$filter*" $@
+    local filter="$1"
+    shift
+    find . -iname "*$filter*" $@
 }
 
 # Find the string content inside files using grep
 r() {
-  local filter="$1"
-  if [ ! $1 ]; then
-      echo "r: Please provide a filter pattern"
-      return 1
-  fi
+    local filter="$1"
+    if [ -z $1 ]; then
+        echo "r: Please provide a filter pattern"
+        return 1
+    fi
 
-  shift
-  grep "$filter" $@ -R .
+    shift
+    grep "$filter" $@ -R .
 }
 
 # Creates one or more folders and immediately change to the last of them
 mkcd()
 {
-  mkdir -p "$@" && cd "$_"
+    mkdir -p "$@" && cd "$_"
 }
 
 # Takes the md5sum of all files in a given directory (recursively)
@@ -138,42 +157,42 @@ mkcd()
 # https://askubuntu.com/questions/421712/comparing-the-contents-of-two-directories
 md5dir()
 {
-  if [ ! $1 ]; then
-      echo "md5dir: Please provide the folder path"
-      return 1
-  fi
+    if [ -z $1 ]; then
+        echo "md5dir: Please provide the folder path"
+        return 1
+    fi
 
-  dirname=$(basename $(readlink -f $1))
+    dirname=$(basename $(readlink -f $1))
 
-  find $1 -type f -exec md5sum {} + | sort -k 2 > ./${dirname}-md5sum-$(date +%Y-%m-%d_%H-%M).txt
+    find $1 -type f -exec md5sum {} + | sort -k 2 > ./${dirname}-md5sum-$(date +%Y-%m-%d_%H-%M).txt
 }
 
 # Find out number of lines per file and order them
 fcount()
 {
-  if [ ! $1 ]; then
-      echo "fcount: Please provide the folder path and filetype extension"
-      return 1
-  fi
+    if [ -z $1 ]; then
+        echo "fcount: Please provide the folder path and filetype extension"
+        return 1
+    fi
 
-  if [ ! $2 ]; then
-      echo "fcount: Please provide the filetype extension"
-      return 1
-  fi
-  extension="$2"
+    if [ -z $2 ]; then
+        echo "fcount: Please provide the filetype extension"
+        return 1
+    fi
+    extension="$2"
 
-  find "$1" -name "*.${extension}" | xargs wc -l | head -n -2 | sort -b -n
+    find "$1" -name "*.${extension}" | xargs wc -l | head -n -2 | sort -b -n
 }
 
 # Copy the contents of a file to the clipboard (XA_CLIPBOARD)
 copyfile()
 {
-  if [ ! $1 ]; then
-      echo "md5dir: Please provide the folder path"
-      return 1
-  fi
+    if [ -z $1 ]; then
+        echo "md5dir: Please provide the folder path"
+        return 1
+    fi
 
-  /bin/cat "$1" | xclip -selection clipboard
+    /bin/cat "$1" | xclip -selection clipboard
 }
 
 # External scripts
