@@ -53,12 +53,15 @@ alias pacd="pacman -Si"
 alias paclast="grep -E '\[ALPM\]\ installed|\[ALPM\]\ reinstalled' /var/log/pacman.log | sort -r | bat"
 
 # Git
+# Following the alias standards from oh-my-zsh git plugin: https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git
 alias gst="git status"
 alias gfa="git fetch --all --prune"
 alias gaa="git add --all"
 alias ga="git add"
+alias gapa="git add --patch"
 alias gca="git commit -v -a"
 alias gcmsg="git commit -m" 
+alias gcam="git commit -a -m"
 alias gd="git diff"
 alias gdca="git diff --cached"
 alias gco="git checkout"
@@ -66,6 +69,7 @@ alias gcb="git checkout -b"
 alias gcd="git checkout develop"
 alias gcm="git checkout master"
 alias glo="git log --oneline --decorate"
+alias ggpush="git push"
 
 
 ### FUNCTIONS ###
