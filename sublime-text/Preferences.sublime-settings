@@ -1,0 +1,36 @@
+{
+	"atomic_save": true,
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_cycle": true,
+	"auto_find_in_selection": true,
+	"bold_folder_labels": true,
+	"caret_style": "solid",
+	"close_windows_when_empty": true,
+	"color_scheme": "Packages/1337 Color Scheme/1337.tmTheme",
+	"drag_text": false,
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Hack Regular",
+	"font_size": 9,
+	"gutter": true,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 2,
+	"line_padding_top": 2,
+	"rulers":
+	[
+		100
+	],
+	"save_on_focus_lost": true,
+	"scroll_speed": 1.5,
+	"show_tab_close_buttons": false,
+	"tab_size": 2,
+	"theme": "SoDaReloaded Dark.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": "true",
+	"wrap_width": 120
+}
