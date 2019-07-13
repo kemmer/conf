@@ -25,9 +25,6 @@ set hlsearch
 " Configuration for indentation (global): convert tabs to spaces
 set expandtab
 
-" indentLine plugin chars
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-
 " Default configurations for indentation
 set shiftwidth=4
 set softtabstop=4
