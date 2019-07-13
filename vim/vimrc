@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'connorholyday/vim-snazzy'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 " END vim-plug
 
@@ -29,6 +30,9 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " Default configurations for indentation
 set shiftwidth=4
 set softtabstop=4
+
+" vim-gitgutter instant updates
+set updatetime=50
 
 " shorcuts for moving around opened tabs
 nnoremap <C-Left> :tabprevious<CR>
