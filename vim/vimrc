@@ -13,6 +13,7 @@ call plug#end()
 colorscheme snazzy
 
 " Activate syntax highlighting
+filetype plugin on
 syntax on
 
 " Activate displaying numbers in the editor
