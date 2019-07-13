@@ -17,6 +17,7 @@ PS1="\[\033[38;5;3m\][\[$(tput sgr0)\]\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[
 
 ### ALIAS ###
 # General tools
+alias l='ls'
 alias ls='ls -l --color=auto'
 alias cat='bat --plain --theme 1337'
 alias mv='mv -i'
@@ -51,6 +52,8 @@ alias pacr="sudo pacman -Rns"
 alias pacrc="sudo pacman -Rnsc"
 alias pacd="pacman -Si"
 alias paclast="grep -E '\[ALPM\]\ installed|\[ALPM\]\ reinstalled' /var/log/pacman.log | sort -r | bat"
+alias pacq="pacman -Q"
+alias pacqf="pacman -Ql"
 
 # Git
 # Following the alias standards from oh-my-zsh git plugin: https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git
