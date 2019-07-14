@@ -74,6 +74,12 @@ alias gcm="git checkout master"
 alias glo="git log --oneline --decorate"
 alias ggpush="git push"
 
+# Vagrant
+alias vs="vagrant status"
+alias vss="vagrant ssh"
+alias vu="vagrant up"
+alias vh="vagrant halt"
+
 
 ### FUNCTIONS ###
 # Configures this script
