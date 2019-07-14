@@ -79,6 +79,7 @@ alias vs="vagrant status"
 alias vss="vagrant ssh"
 alias vu="vagrant up"
 alias vh="vagrant halt"
+alias vr="vagrant reload"
 
 
 ### FUNCTIONS ###
