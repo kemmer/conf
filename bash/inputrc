@@ -1,9 +1,3 @@
-# Configuring vi edit mode
-set editing-mode vi
-set show-mode-in-prompt on
-set vi-ins-mode-string "[I]"
-set vi-cmd-mode-string "[C]"
-
 # Allowing the Ctrl + L in both insert and command modes
 $if mode=vi
   # these are for vi-command mode
