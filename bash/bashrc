@@ -3,7 +3,8 @@
 #
 
 # Suggested packages:
-# bat tree xclip ncdu lsof rsync ranger
+# bat tree xclip ncdu lsof rsync ranger pv borg entr shuf
+# curl wget dd
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -17,6 +18,7 @@ PS1="\[\033[38;5;3m\][\[$(tput sgr0)\]\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[
 
 ### ALIAS ###
 # General tools
+alias h='cd $HOME'
 alias l='ls'
 alias ls='ls -l --color=auto'
 alias cat='bat --plain --theme 1337'
