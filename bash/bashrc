@@ -208,5 +208,5 @@ copyfile()
 }
 
 # External scripts
-. $HOME/.bash_scripts/*.sh
+for script in $HOME/.bash_scripts/*.sh; do source $script; done
 
