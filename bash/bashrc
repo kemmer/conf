@@ -147,6 +147,9 @@ copyfile()
     /bin/cat "$1" | xclip -selection clipboard
 }
 
-# External scripts
+### EXTERNAL SCRIPTS ###
 for script in $HOME/.bash_scripts/*.sh; do source $script; done
+
+### BOOT ###
+neofetch
 
