@@ -15,80 +15,20 @@
 ### VARIABLES (CONFIGURATION ONLY) ###
 PS1="\[\033[38;5;3m\][\[$(tput sgr0)\]\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\033[38;5;9m\]\w\[$(tput sgr0)\]\[\033[38;5;3m\]]\[$(tput sgr0)\]\[\033[38;5;15m\] \\$ \[$(tput sgr0)\]"
 
-
-### ALIAS ###
-# General tools
-alias h='cd $HOME'
-alias l='ls'
-alias ls='ls -l --color=auto'
-alias cat='bat --plain --theme 1337'
-alias mv='mv -i'
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-
-# List used/free space in the filesystem
-alias space='df -hT -x tmpfs -x devtmpfs'
-
-# List the folder sizes in current dir, reversed ordered by size
-alias sizes='du -h -d 1 . | sed "s/\.\///g" | sort -h -r'
-
-# Express VPN
-alias evpn="expressvpn"
-alias evpns="expressvpn status"
-alias evpnc="expressvpn connect"
-alias evpnd="expressvpn disconnect"
-alias evpnb="expressvpn disconnect ; expressvpn connect Brazil"
-alias evpnn="expressvpn disconnect ; expressvpn connect Netherlands"
-alias evpng="expressvpn disconnect ; expressvpn connect Germany"
-
-# Generate SSH key
-alias sshgen="ssh-keygen -t rsa -b 2048 -m pem"
-
-# Pacman
-alias pacs="pacman -Ss"
-alias paci="sudo pacman -S"
-alias pacu="sudo pacman -Syy"
-alias pacup="sudo pacman -Syyu"
-alias pacr="sudo pacman -Rns"
-alias pacrc="sudo pacman -Rnsc"
-alias pacd="pacman -Si"
-alias paclast="grep -E '\[ALPM\]\ installed|\[ALPM\]\ reinstalled' /var/log/pacman.log | sort -r | bat"
-alias pacq="pacman -Q"
-alias pacqf="pacman -Ql"
-
-# Git
-# Following the alias standards from oh-my-zsh git plugin: https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git
-alias gst="git status"
-alias gfa="git fetch --all --prune"
-alias gaa="git add --all"
-alias ga="git add"
-alias gapa="git add --patch"
-alias gca="git commit -v -a"
-alias gcmsg="git commit -m" 
-alias gcam="git commit -a -m"
-alias gd="git diff"
-alias gdca="git diff --cached"
-alias gco="git checkout"
-alias gcb="git checkout -b"
-alias gcd="git checkout develop"
-alias gcm="git checkout master"
-alias glo="git log --oneline --decorate"
-alias ggpush="git push"
-
-# Vagrant
-alias vs="vagrant status"
-alias vss="vagrant ssh"
-alias vu="vagrant up"
-alias vh="vagrant halt"
-alias vr="vagrant reload"
-
+### ALIASES ###
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
 
 ### FUNCTIONS ###
 # Configures this script
 config_bash()
 {
     $EDITOR $HOME/.bashrc
+}
+
+# Configures aliases for this shell
+config_alias()
+{
+    $EDITOR $HOME/.bash_aliases
 }
 
 # Configures environment variables
