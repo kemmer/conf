@@ -64,3 +64,7 @@ alias vu="vagrant up"
 alias vh="vagrant halt"
 alias vr="vagrant reload"
 
+# Python
+# -- VirtualEnv
+alias venv='. venv/bin/activate'
+alias denv='deactivate'
