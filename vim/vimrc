@@ -42,6 +42,9 @@ set clipboard=unnamedplus
 " Statusline configuration
 set laststatus=2
 
+" Show keys being pressed in Normal Mode
+set showcmd
+
 " :h mode() to see all modes
 let g:currentmode={
     \ 'n'      : 'N ',
