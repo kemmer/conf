@@ -9,6 +9,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+### ENV VARIABLES ###
 # Make profile env vars do be reloaded every time new shell is started
 [[ -f ~/.profile ]] && . ~/.profile
 
@@ -74,6 +75,11 @@ config_lscript()
 config_vim()
 {
     $EDITOR $HOME/.vimrc
+}
+
+config_task()
+{
+    $EDITOR $HOME/.taskrc
 }
 
 # Finds file starting from current directory
