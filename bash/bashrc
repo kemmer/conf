@@ -21,31 +21,31 @@ PS1="\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h \[$(tput sgr0)\]\[\
 
 ### FUNCTIONS ###
 # Configures this script
-config_bash()
+config-bash()
 {
     $EDITOR $HOME/.bashrc
 }
 
 # Configures aliases for this shell
-config_alias()
+config-alias()
 {
     $EDITOR $HOME/.bash_aliases
 }
 
 # Configures environment variables
-config_env()
+config-env()
 {
     $EDITOR $HOME/.profile
 }
 
 # Configures inputrc file (Readline configuration)
-config_inputrc()
+config-inputrc()
 {
     $EDITOR $HOME/.inputrc
 }
 
 # Configures the custom scripts held in scripts dir
-config_script()
+config-script()
 {
     if [ -z $1 ]; then
         return
@@ -56,7 +56,7 @@ config_script()
 }
 
 # Configures the custom scripts held in scripts dir (private)
-config_privscript()
+config-privscript()
 {
     if [ -z $1 ]; then
         return
@@ -67,17 +67,17 @@ config_privscript()
     $EDITOR $HOME/.bash_scripts/$private_filename
 }
 
-config_lscript()
+config-lscript()
 {
     (cd $HOME/.bash_scripts/ && /bin/ls *.sh)
 }
 
-config_vim()
+config-vim()
 {
     $EDITOR $HOME/.vimrc
 }
 
-config_task()
+config-task()
 {
     $EDITOR $HOME/.taskrc
 }
