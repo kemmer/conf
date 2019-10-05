@@ -9,6 +9,7 @@ Configuration file for Sublime Text 3
 - Git
 - GitGutter
 - MarkdownEditing
+- DocBlockr
 
 ## Other requirements
 - Hack fonts
