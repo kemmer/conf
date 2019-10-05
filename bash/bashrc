@@ -4,7 +4,7 @@
 
 # Suggested packages:
 # bat tree xclip ncdu lsof rsync ranger pv borg entr shuf
-# curl wget dd
+# curl wget dd mtr fasd youtube-dl
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -157,5 +157,6 @@ copyfile()
 for script in $HOME/.bash_scripts/*.sh; do source $script; done
 
 ### BOOT ###
+eval "$(fasd --init auto)"
 neofetch
 
