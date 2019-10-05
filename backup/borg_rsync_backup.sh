@@ -3,9 +3,12 @@
 # Folder to be backed up
 SOURCE="$HOME/Files"
 
+# The namespace where to lie the backups in
+NAMESPACE="$(hostname)"
+
 # Targets for fast and slow disk drives
-TARGET_FAST="/run/media/crke/KENTUCKY"
-TARGET_SLOW="/run/media/crke/PARUDO"
+TARGET_FAST="/run/media/crke/KENTUCKY/${NAMESPACE}"
+TARGET_SLOW="/run/media/crke/PARUDO/${NAMESPACE}"
 
 # The RECORD_ID
 RECORD_ID=""
@@ -18,11 +21,17 @@ generate_record_id()
     RECORD_ID=$(shuf -i 100000000-999999999 -n 1)
 }
 
+check_prerequisite_configuration()
+{
+    [ -z "$NAMESPACE" ] && echo "[ERROR] -> NAMESPACE was not set. Cannot proceed." && exit 1
+    [ -z "$RECORD_ID" ] && echo "[ERROR] -> RECORD_ID was not generated. Cannot proceed." && exit 1
+}
+
 # Check if the tools provided in parameters are available to be executed in
 # the shell
 # Display error messages for each of not found command and terminates the
 # execution with return code 1
-check_prerequisite()
+check_prerequisite_command()
 {
     local program_name="$1"
     local some_not_found=0
@@ -41,20 +50,9 @@ check_prerequisite()
     fi
 }
 
-# Check if the RECORD_ID variable was populated, otherwise we cannot proceed
-check_record_id()
-{
-    if [ -z RECORD_ID ]; then
-        echo "[ERROR] -> RECORD_ID was not generated. Cannot proceed."
-        exit 1
-    fi
-}
-
 # Performs a backup in the fast disk drive
 backup_fast()
 {
-    check_record_id
-
     local status_borg=0
     local status_rsync=0
 
@@ -77,8 +75,6 @@ backup_fast()
 # Performs a backup in the slow disk drive
 backup_slow()
 {
-    check_record_id
-
     local status_borg=0
     local status_rsync=0
 
@@ -128,7 +124,9 @@ main()
     fi
 }
 
-check_prerequisite borg rsync shuf
+check_prerequisite_command borg rsync shuf
 generate_record_id
+check_prerequisite_configuration
+
 main $@
 
